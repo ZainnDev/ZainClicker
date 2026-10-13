@@ -1,0 +1,62 @@
+.root {
+    -fx-background-color: #1e1f22;
+    -fx-font-family: "Segoe UI";
+    -fx-font-size: 13px;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.label {
+    -fx-text-fill: #c9ccd1;
+}
+
+.title {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.hint {
+    -fx-font-size: 11px;
+    -fx-text-fill: #7a7f87;
+}
+
+.status-on {
+    -fx-text-fill: #3ba55d;
+    -fx-font-weight: bold;
+}
+
+.status-off {
+    -fx-text-fill: #ed4245;
+    -fx-font-weight: bold;
+}
+
+.text-field {
+    -fx-background-color: #2b2d31;
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: #6b6f76;
+    -fx-background-radius: 6;
+    -fx-border-color: #3a3c41;
+    -fx-border-radius: 6;
+    -fx-padding: 6 10;
+}
+
+.text-field:focused {
+    -fx-border-color: #5865f2;
+}
+
+.check-box .box {
+    -fx-background-color: #2b2d31;
+    -fx-border-color: #3a3c41;
+    -fx-background-radius: 4;
+    -fx-border-radius: 4;
+}
+
+.check-box:selected .box {
+    -fx-background-color: #5865f2;
+    -fx-border-color: #5865f2;
+}
+
+.check-box:selected .mark {
+    -fx-background-color: white;
+}
