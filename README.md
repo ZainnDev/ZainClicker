@@ -7,6 +7,12 @@ A lightweight desktop autoclicker built with **Java** and **JavaFX**. It clicks 
 
 ---
 
+## Downloads
+
+See [Releases](https://github.com/ZainnDev/ZainClicker/releases) for the ZainClicker executable download.
+
+---
+
 ## Features
 
 - **Hold-to-click.** Clicks only fire while you're physically holding the left mouse button, and stop the moment you let go.
