@@ -167,12 +167,24 @@ public class ZainClicker extends Application
                     if (low < 1) low = 1;
                     int cps = low + random.nextInt(high - low + 1);
 
-                    Thread.sleep(1000 / cps);   // wait first, since your own press already counts as a click
+                    //split each click into a held half and a released half, because games like
+                    //minecraft bedrock check the button once per frame and miss instant clicks
+                    int half = Math.max(1, (1000 / cps) / 2);
+
+                    Thread.sleep(half);   // wait first, since your own press already counts as a click
 
                     if (enabled && leftHeld) {   // you might have let go during the wait
-                        fakeEvents.addAndGet(2);
-                        robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+                        //release first, then press again after a gap, so the button ends up down
+                        //just like your finger is, and every cycle is a real up -> down change
+                        fakeEvents.incrementAndGet();
                         robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
+
+                        Thread.sleep(half);
+
+                        if (leftHeld) {   // only press back down if you're still holding
+                            fakeEvents.incrementAndGet();
+                            robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+                        }
                     }
                 } catch (InterruptedException e) {
                     return;
